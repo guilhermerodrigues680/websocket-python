@@ -4,7 +4,8 @@ __pycache__/
 *$py.class
 
 # Environments
-myvenv/
+myvenv/*
+!myvenv/.gitkeep
 
 # Visual Studio Code
 /.vscode

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebSocket demo</title>
+</head>
+<body onload="carregar()">
+    <script>
+        var ws = new WebSocket("ws://127.0.0.1:5678/"),
+            messages = document.createElement('ul')
+        
+        //
+        function carregar() {
+            document.body.style.background = "black"
+            document.body.style.color = "white"
+        }
+        //
+
+        ws.onmessage = function (event) {
+            //console.log(event)
+            var messages = document.getElementsByTagName('ul')[0],
+                message = document.createElement('li'),
+                content = document.createTextNode(event.data)
+
+            message.appendChild(content)
+            messages.appendChild(message)
+        }
+
+        document.body.appendChild(messages);
+    </script>
+</body>
+</html>
